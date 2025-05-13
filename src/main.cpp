@@ -10,10 +10,13 @@
 using namespace std;
 
 // 輸出我的學號
-void PrintMyID(string studId) {
-    string str = "ID: " + studId;
-    cout << AnsiPrint(str.c_str(),YELLOW,RED, true, true) << endl << endl;
+void PrintMyID(std::string studId) {
+
+	std::string str = "ID: " + studId;
+	std::cout << AnsiPrint(str.c_str(), YELLOW, RED, true, true) << std::endl
+	          << std::endl;
 }
+
 
 int main() {
     View view;                      // 建立 View
