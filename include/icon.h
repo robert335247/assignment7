@@ -13,8 +13,8 @@ typedef struct {
     string ascii;
 
     Cell(Color c, string a) { // 建構子
-        this-> color = c;
-        this-> ascii = a;
+        color = c;
+        ascii = a;
     }
 
 } Cell; // 格子

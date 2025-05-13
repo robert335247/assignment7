@@ -14,7 +14,7 @@ using namespace std;
 // 建構子
 // 輸入的參數是一個 View 物件
 Controller::Controller(View& view)
-    : _view = (view) { // 可以這樣嗎
+    : _view(view) { 
     // 將 view 賦值給 _view // 參考無法使用 this
 
 }
@@ -44,7 +44,6 @@ void Controller::run() {
         _view.resetLatest(); // 初始化畫面
 
         for(int i = 0; i < _objs.size(); i++) {
-            _objs[i]-> update();
             _view.updateGameObject(_objs[i]); // 變更畫面
         }
 
