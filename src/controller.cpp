@@ -76,13 +76,13 @@ void Controller::addGameObject(GameObject* obj) {
 
 void Controller::handleInput(int input) { // d
     if (input == 119) { 
-        _objs[0]-> update(0, 1); // w // 上 
+        _objs[0]-> update(0, -1); // w // 上 
     } else if (input == 115) {  
-        _objs[0]-> update(0, -1); // s // 下
+        _objs[0]-> update(0, 1); // s // 下
     } else if (input == 97) { 
-        _objs[0]-> update(1, 0); // a // 右
+        _objs[0]-> update(-1, 0); // a // 右
     } else if (input == 100) { 
-        _objs[0]-> update(-1, 0); // d // 左
+        _objs[0]-> update(1, 0); // d // 左
     } else {
         return;
     }
