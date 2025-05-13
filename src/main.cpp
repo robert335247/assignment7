@@ -32,13 +32,13 @@ int main() {
     
 
     // 加入 Controller 管理
+    controller.addGameObject(DynamicObject1);
     controller.addGameObject(StaticObject1);
     controller.addGameObject(StaticObject2);
     controller.addGameObject(StaticObject3);
     controller.addGameObject(StaticObject4);
     controller.addGameObject(StaticObject5);
-    controller.addGameObject(DynamicObject1);
-
+   
     // 主迴圈
     controller.run();  // 改為呼叫 run()，內部會處理輸入與更新
 
