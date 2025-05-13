@@ -1,14 +1,17 @@
-#ifndef _ANSIPRINT_H //d
+#ifndef _ANSIPRINT_H
 #define _ANSIPRINT_H
 
-using namespace std;
+#include <string>
+#include "unit.h"
 
-//#define _WIN
-enum color {black=0, red, green, yellow, blue, pink, cyan, white, nochange};
+std::string AnsiPrint(const char* str,
+                      Color fg = NOCHANGE,
+                      Color bg = NOCHANGE,
+                      bool hi = false,
+                      bool blinking = false);
 
-// 使用指定的 ANSI 顏色選項來格式化並輸出字串
-string AnsiPrint(const char *str, color fg, color bg = nochange, 
-                   bool hi = false, bool blinking = false);
-string AnsiPrint(const char *str, bool hi = false, bool blinking = false);
+std::string AnsiPrint(const char* str,
+                      bool hi = false,
+                      bool blinking = false);
 
-#endif
+#endif  // _ANSIPRINT_H
