@@ -23,7 +23,7 @@ const int kFormatStrSize=20;
  * The options except for the foreground color are optional. 
  */
 std::string
-AnsiPrint(const char *str, Color fg, Color bg, bool hi, bool blinking) {
+AnsiPrint(const char *str, color fg, color bg, bool hi, bool blinking) {
 
     // kick out exceptional case
     if ((str==NULL)||(strlen(str)==0))
@@ -43,10 +43,10 @@ AnsiPrint(const char *str, Color fg, Color bg, bool hi, bool blinking) {
     if (blinking) {
         strcat(formatStr, blink);
     }
-    if (fg!=NOCHANGE) {
+    if (fg!=nochange) {
         strcat(formatStr, foreground);
     }
-    if (bg!=NOCHANGE) {
+    if (bg!=nochange) {
         strcat(formatStr, background);
     }
     // terminate the options
