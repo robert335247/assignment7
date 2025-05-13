@@ -12,10 +12,7 @@ typedef struct {
     Color color;
     string ascii;
 
-    Cell(Color c, string a) { // 建構子
-        color = c;
-        ascii = a;
-    }
+    Cell(Color c, std::string a) : color(c), ascii(a){}
 
 } Cell; // 格子
 
