@@ -23,12 +23,13 @@ int main() {
     Controller controller(view);    // 將 View 傳給 Controller
 
     // 建立物件
+    GameObject* DynamicObject1 = GameObjectFactory::createDynamicObject(12, 15);
     GameObject* StaticObject1 = GameObjectFactory::createStaticObject(4, 1);
     GameObject* StaticObject2 = GameObjectFactory::createStaticObject(4, 10);
     GameObject* StaticObject3 = GameObjectFactory::createStaticObject(6, 18);
     GameObject* StaticObject4 = GameObjectFactory::createStaticObject(7, 12);
     GameObject* StaticObject5 = GameObjectFactory::createStaticObject(19, 1);
-    GameObject* DynamicObject1 = GameObjectFactory::createDynamicObject(12, 15);
+    
 
     // 加入 Controller 管理
     controller.addGameObject(StaticObject1);
