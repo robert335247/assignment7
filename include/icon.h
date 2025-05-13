@@ -8,13 +8,13 @@
 using namespace std;
 
 // 格子
-typedef struct {
+struct Cell {
     Color color;
     string ascii;
 
     Cell(Color c, std::string a) : color(c), ascii(a){}
 
-} Cell; // 格子
+}; 
 
 // Icon 是一個二維的 Cell 陣列
 typedef vector<vector<Cell>> Icon; 
