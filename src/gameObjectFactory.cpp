@@ -1,5 +1,6 @@
 #include "gameObjectFactory.h" // d
 #include "iconFactory.h"
+#include "environment.h"
 
 class StaticObject : public GameObject {
 public:
@@ -7,6 +8,8 @@ public:
         _pos.e1 = x; _pos.e2 = y;
         _icon = IconFactory::createStaticIcon(); // 從 IconFactory 取得圖案，並將其賦值給 _icon
     }
+
+    void update(int x, int y) override {}
 };
 
 class DynamicObject : public GameObject {
