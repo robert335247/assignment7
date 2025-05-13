@@ -1,11 +1,14 @@
 #ifndef VIEW_H
 #define VIEW_H
-#include "unit.h"
-#include "gameObject.h"
+
 #include <string>
 #include <vector>
 #include <string>
 #include <utility>
+#include "unit.h"
+#include "gameObject.h"
+
+using namespace std;
 
 class View{
 public:
@@ -16,10 +19,10 @@ public:
 private:
     int _termWidth;
     int _termHeight;
-    std::vector<std::vector<std::string>> latest_map, last_map;
-    std::vector<std::vector<Color>>       latest_fg_color, last_fg_color;
-    std::vector<std::vector<Color>>       latest_bg_color, last_bg_color;
-    static std::pair<int, int> get_terminal_size();
+    vector<vector<string>> latest_map, last_map;
+    vector<vector<Color>>       latest_fg_color, last_fg_color;
+    vector<vector<Color>>       latest_bg_color, last_bg_color;
+    static pair<int, int> get_terminal_size();
 };
 
 #endif

@@ -3,20 +3,32 @@
 
 #include <vector>
 #include <string>
-
 #include "unit.h"
 
-struct Cell{
+using namespace std;
+
+// 格子
+typedef struct {
     Color color;
-    std::string ascii;
-    Cell(Color c, std::string a) : color(c), ascii(a){}
-};
+    string ascii;
 
-using Icon = std::vector<std::vector<Cell>>;
+    Cell(Color c, string a) { // 建構子
+        this-> color = c;
+        this-> ascii = a;
+    }
 
-size_t icon_width(const Icon& icon);
+} Cell; // 格子
 
-size_t icon_height(const Icon& icon); 
+// Icon 是一個二維的 Cell 陣列
+typedef vector<vector<Cell>> Icon; 
+
+// 輸入的參數是一個 Icon 物件，而當此物件一被輸入進去後，
+// 此物件將會傳參考到 icon，因此 icon 即為此物件的參考
+// 回傳這這張 Icon 的寬度（橫向的 Cell 的數量）
+size_t icon_width(const Icon &icon); 
+
+// 回傳這這張 Icon 的高度（直向的 Cell 的數量)
+size_t icon_height(const Icon &icon); 
 
 
 #endif

@@ -1,7 +1,7 @@
 #include "view.h"
 #include "environment.h"
 #include "AnsiPrint.h"
-#include <codecvt>      // std::wstring_convert
+#include <codecvt>      // wstring_convert
 #include <cwchar>       // wcwidth
 #include <sys/ioctl.h>   // winsize, TIOCGWINSZ
 #include <unistd.h>  //  STDOUT_FILENO
@@ -9,7 +9,7 @@
 #include <locale>
 #include <utility>
 
-// return the actual length in terminal of a string.
+// 傳回單一字串在終端機中實際顯示的長度
 int displayWidth(const std::string& utf8) {
     static std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> conv;
     auto u32 = conv.from_bytes(utf8);
@@ -76,14 +76,13 @@ void View::render(){
     frame.reserve((GAME_WINDOW_HEIGHT + 2) * (GAME_WINDOW_CELL_WIDTH * GAME_WINDOW_WIDTH + 3));
 
 
-    // Top line
-
+    // 上邊界
     frame += '+' + std::string(GAME_WINDOW_WIDTH * GAME_WINDOW_CELL_WIDTH, '-') + "+\n";
 
     for (int r = 0; r < GAME_WINDOW_HEIGHT; ++r) {
         int rowScreen = r + 2;
 
-        // Left line
+        // 左邊界
         frame += '|';
 
         int pixelCol = 1;
@@ -98,15 +97,15 @@ void View::render(){
             int padLeft  = padTotal / 2;
             int padRight = padTotal - padLeft;
 
-            // Left blank
+            // 左空格
             for (int p = 0; p < padLeft; ++p) {
                 frame += AnsiPrint(" ", Color::NOCHANGE, bg, false, false);
             }
 
-            // icon 
+            // 圖像
             frame += AnsiPrint(txt.c_str(), fg, bg, false, false);
 
-            // Right 
+            // 右空格
             for (int p = 0; p < padRight; ++p) {
                 frame += AnsiPrint(" ", Color::NOCHANGE, bg, false, false);
             }
@@ -115,17 +114,17 @@ void View::render(){
         }
 
 
-        // Right line
+        // 右邊界
         frame += "|\n";
 
     }
-    // Bottom line
+    // 下邊界
     frame += '+' + std::string(GAME_WINDOW_WIDTH * GAME_WINDOW_CELL_WIDTH, '-') + "+\n";
 
     std::cout << "\033[H" << frame << std::flush;
 
 
-    // update buffer
+    // 更新緩衝區
     last_map      = latest_map;
     last_fg_color = latest_fg_color;
     last_bg_color = latest_bg_color;
@@ -146,7 +145,7 @@ std::pair<int,int> View::get_terminal_size() {
         rows = w.ws_row;
         cols = w.ws_col;
     } else {
-        rows = cols = -1; // Error case
+        rows = cols = -1; // 異常情況
     }
     return std::make_pair(rows, cols);
 }
