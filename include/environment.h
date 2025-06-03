@@ -18,4 +18,5 @@ constexpr int WINDOW_PIXEL_HEIGHT = GAME_WINDOW_HEIGHT;
 
 // 每張畫面預計停留的時間 (1 秒)
 constexpr double SPF = 1; 
+
 #endif

@@ -12,7 +12,7 @@ struct Cell {
     Color color;
     string ascii;
 
-    Cell(Color c, std::string a) : color(c), ascii(a){}
+    Cell(Color c, string a) : color(c), ascii(a){}
 
 }; 
 

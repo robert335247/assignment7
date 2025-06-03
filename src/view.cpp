@@ -9,6 +9,8 @@
 #include <locale>
 #include <utility>
 
+using namespace std;
+
 // 傳回單一字串在終端機中實際顯示的長度
 int displayWidth(const std::string& utf8) {
     static std::wstring_convert<std::codecvt_utf8<char32_t>, char32_t> conv;

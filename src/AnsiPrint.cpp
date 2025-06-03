@@ -1,11 +1,11 @@
-#include <cstdlib>
+#include <cstdlib> // d
 #include <cstring>
-#include <cstdio>
 #include <iostream>
 #include "AnsiPrint.h"
 
+using namespace std;
 
-// a few constant ansi formatting string
+// 一些與 ANSI 格式化相關的常數字串
 const char *init="\x1b[";
 const char *endc="m";
 const char *hilit="1;";
@@ -15,104 +15,98 @@ const char *fgBase="30;";
 const char *bgBase="40;";
 const int kFormatStrSize=20;
 
-/** 
- * This function takes a string and ansi formatting option such as 
- * foreground and background colors, hilighting for foreground color,
- * and blinking option and then send the appropriate string to the
- * standard output. 
- * The options except for the foreground color are optional. 
- */
-std::string
-AnsiPrint(const char *str, Color fg, Color bg, bool hi, bool blinking) {
 
-    // kick out exceptional case
+// 此函式接收一個字串和 ANSI 格式化選項，如前景色、背景色、前景色加亮、閃爍效果等，  
+// 然後將適當的格式化字串輸出到標準輸出。除了前景色外，其餘選項都是可選的。  
+void AnsiPrint(const char *str, color fg, color bg, bool hi, bool blinking) {
+
+    // 排除異常情況
     if ((str==NULL)||(strlen(str)==0))
-        return "";
-    // creating foreground and background options
+     return;
+
+    // 建立前景色與背景色選項
     char *foreground=strdup(fgBase);
     foreground[1]+=fg;
     char *background=strdup(bgBase);
     background[1]+=bg;
-    // initialize the formatting string
+
     char formatStr[kFormatStrSize]="";
+
+    // 初始化格式化字串
     strcat(formatStr, init);
-    // according to the options, append appropriate string
+
+    // 根據選項附加適當的格式字串
     if (hi) {
         strcat(formatStr, hilit);
     }
     if (blinking) {
         strcat(formatStr, blink);
     }
-    if (fg!=NOCHANGE) {
+    if (fg!=nochange) {
         strcat(formatStr, foreground);
     }
-    if (bg!=NOCHANGE) {
+    if (bg!=nochange) {
         strcat(formatStr, background);
     }
-    // terminate the options
+
+    // 結束格式設定 
     if (formatStr[strlen(formatStr)-1]==';')
         formatStr[strlen(formatStr)-1]= '\0';
     strcat(formatStr,endc);
 
-
+    // 輸出到標準輸出
+    #ifdef _WIN
+    cout << str;
+    #else
+    cout << formatStr << str << recover;
+    #endif
+    // 釋放已分配的緩衝區 
     free(background);
     free(foreground);
+    return;
 
-    std::string res;
-#ifdef _WIN
-    res.append(str)
-#else
-    res.append(formatStr);
-    res.append(str);
-    res.append(recover);
-#endif
-
-    return res;
 }
 
-/** 
- * This function takes a string and ansi formatting option such as 
- * hilighting for foreground color,  and blinking option and 
- * then send the appropriate string to the standard output. 
- * The two options are optional. So, when no options are given,
- * it prints the string as normal string.
- */
+// 此函式接收一個字串和 ANSI 格式化選項，如前景色加亮與閃爍效果，  
+// 然後將適當的格式化字串輸出到標準輸出。這兩個選項都是可選的，
+// 因此如果未提供選項，則會以普通字串的方式輸出。  
+void AnsiPrint(const char *str, bool hi, bool blinking) {
 
-std::string
-AnsiPrint(const char *str, bool hi, bool blinking) {
-
-    // kick out exceptional case
+    // 排除異常情況 
     if ((str==NULL)||(strlen(str)==0))
-        return "";
-
+        return;
+    
     char formatStr[kFormatStrSize]="";
+
     if (hi||blinking) {
-        // initialize the formatting string
+        // 初始化格式化字串 
         strcat(formatStr, init);
-        // according to the options, append appropriate string
+
+        // 根據選項附加適當的格式字串
         if (hi) {
             strcat(formatStr, hilit);
         }
         if (blinking) {
             strcat(formatStr, blink);
         }
+
+        // 結束格式設定 
         if (formatStr[strlen(formatStr)-1]==';')
             formatStr[strlen(formatStr)-1]= '\0';
         strcat(formatStr,endc);
     }
 
-    std::string res;
-#ifdef _WIN
-    res.append(str)
-#else
-    res.append(formatStr);
-    res.append(str);
-    res.append(recover);
-#endif
-
-    return res;
-
+    // 輸出到標準輸出
+    #ifdef _WIN
+    cout << str;
+    #else
+    cout << formatStr << str << recover;
+    #endif
+    return;
 
 }
+
+
+
 
 
