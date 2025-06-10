@@ -12,9 +12,9 @@
 
 ## 作者
 
-[](https://github.com/robert335247)
+[Robert335247](https://github.com/robert335247)
 
 ## 預覽圖
 
-[](./screenShoot.png)
+![](./screenShoot.png)
 
