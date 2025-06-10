@@ -1,15 +1,32 @@
-#ifndef _ANSIPRINT_H //d
+/* Copyright (c) 1996 by The National Chengchi Univ. All Rights Reserved */
+
+/***************************************************************************
+   NAME
+     AnsiPrint.h
+   PURPOSE
+     Print Text with color in Ansi-enabled terminal
+   NOTES
+     
+   AUTHOR
+     Tsai-Yen Li (li@cs.nccu.edu.tw)
+   HISTORY
+     Tsai-Yen Li - Sep 25, 1996: Created.
+***************************************************************************/
+
+#ifndef _ANSIPRINT_H
 #define _ANSIPRINT_H
 
-using namespace std;
+#include <string>
+#include "unit.h"
 
-//#define _WIN
-enum color {black = 0, red = 1, green = 2, yellow = 3, blue = 4,
-            pink = 5, cyan = 6, white = 7, nochange = 8};
+std::string AnsiPrint(const char* str,
+                      Color fg = NOCHANGE,
+                      Color bg = NOCHANGE,
+                      bool hi = false,
+                      bool blinking = false);
 
-// 使用指定的 ANSI 顏色選項來格式化並輸出字串
-string AnsiPrint(const char *str, color fg, color bg = nochange, 
-                   bool hi = false, bool blinking = false);
-string AnsiPrint(const char *str, bool hi = false, bool blinking = false);
+std::string AnsiPrint(const char* str,
+                      bool hi = false,
+                      bool blinking = false);
 
-#endif
+#endif  // _ANSIPRINT_H
