@@ -6,6 +6,7 @@
 #include "view.h"
 #include "gameObject.h"
 #include "gameObjectFactory.h"
+#include "collider.h"
 
 using namespace std;
 
