@@ -1,64 +1,20 @@
-# 2025 OOP Assignment #5
-- Due: 2025/5/12 23:59:59
-- Author: 111703003 廖經翔
-- Contact: 111703003@g.nccu.edu.tw
----
+# 方塊逃亡記  
 
-## 2D Console Game (Part1)
+## 簡介
 
-Obejctive: Building a basic structure of a game and practice Object-Oriented Design
+為了躲避大魔王紅色方塊，擁有三顆無敵星星的藍色方塊上演了一場驚心動魄的逃亡記，
+情急之下，藍色方塊拿出了冷凍噴霧朝紅色方塊噴灑，並成功冰凍住所有的紅色方塊，
+然而，危機仍然存在，被冰凍住的紅色方塊仍四散在地圖各處，
+身為玩家的你必須透過鍵盤操控藍色方塊，避免其不小心撞上紅色方塊，
+若是不小心撞到紅色方塊，藍色方塊就會被紅色方塊攻擊而死，並被扣一顆無敵星星，
+但直到無敵星星被扣完前，藍色方塊都會回到重生點，並獲得重生的機會，趕快一起來幫助
+藍色方塊躲避大魔王紅色方塊的攻擊吧
 
-### Description
+## 作者
 
-In this assignment, you are required to complete the following:
-1. Complete the missing part with the `//TODO` comments.
-2. Setup the simple Model-View-Controller architecture.
-3. Create some GameObjects and player-controlled GameObject in Map
+()[https://github.com/robert335247]
 
-### Expected Output
+## 預覽圖
 
-
-
-https://github.com/user-attachments/assets/5e90f4cc-372d-4232-abac-67e397f0f73d
-
-### Compile and Run
-Before compiling the program, in **Project Folder**:
-```console
-mkdir build
-```
-```console
-cd build
-```
-
-Then in `build/`:
-```console
-cmake ..
-```
-
-To compile the program, in `build/`:
-```console
-make
-```
-
-To run the program, in `build/`:
-```console
-./exec
-```
-
-### Scoreing Criteria
-|Description|Score|
-|-----|-----|
-|Submit the assignment|20|
-|Able to compile|20|
-|Draw static GameObject correctly|20|
-|Draw dynamic GameObject correctly|10|
-|Implement IconFactory|10|
-|Implement GameObjectFactory|10|
-|Handling key input to control GameObjects|10|
-
-### Reminder
-
-1. The default include path is set to `include/`, any header file below `include` can be included directly.
-2. You can add new files for more features, but the required part noted by `//TODO` must be implemented.
-3. After finishing this assignment, you can start to think what games you can make with the architecture.
+()[./screenShoot.png]
 
