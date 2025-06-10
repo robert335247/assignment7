@@ -56,6 +56,7 @@ void View::updateGameObject(GameObject* obj) {
                 const Cell& cell = icon[dy][dx];
                 latest_map      [row][col] = cell.ascii;
                 latest_bg_color [row][col] = cell.color;
+                latest_fg_color [row][col] = cell.color;
             }
         }
 
