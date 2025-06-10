@@ -1,6 +1,8 @@
 #ifndef COLLIDER_H
 #define COLLIDER_H
 
+#include "gameObject.h"
+
 class ICollider {
 public:
 

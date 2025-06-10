@@ -44,8 +44,10 @@ void Controller::run() {
 
         // 碰撞偵測與處理
         for (int i = 1; i < _objs.size(); i++) {
-            if (_objs[0]-> intersect(_objs[i]) == true) {
-                _objs[0]-> onCollision(_objs[i]);
+            // 透過 dynamic_cast 嘗試將 _objs[0] 的型態從 GameObject* 轉換成 DynamicObject*
+            DynamicObject* DynamicObject1 = dynamic_cast<DynamicObject*>(_objs[0]);
+            if (DynamicObject1-> intersect(_objs[i]) == true) {
+                DynamicObject1-> onCollision(_objs[i]);
             }
         }
 
