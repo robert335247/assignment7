@@ -71,10 +71,10 @@ public:
         }
     }
 
-    void onCollision(ICollider* other) override { // 發生碰撞
+    void onCollision(GameObject* otherGameObject) override { // 發生碰撞
 
         // 透過 dynamic_cast 嘗試將 other 的型態從 ICollider* 轉換成 GameObject*
-        GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
+        // GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
 
         // 如果轉換成功 (otherGameObject != nullptr) 
         if (otherGameObject != nullptr) {
@@ -89,9 +89,9 @@ public:
         }
     }
  
-    bool intersect(ICollider* other) override { // 是否發生碰撞
+    bool intersect(GameObject* otherGameObject) override { // 是否發生碰撞
 
-        GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
+        // GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
 
         if ((otherGameObject != nullptr)) {
             if ((this-> _pos.x() == otherGameObject-> _pos.x()) && 

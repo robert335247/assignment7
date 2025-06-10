@@ -8,8 +8,8 @@ public:
     // 此函式要被自動呼叫
     ~ICollider() {}; 
 
-    virtual bool intersect(ICollider*) = 0; // 交叉
-    virtual void onCollision(ICollider*) = 0; // 碰撞
+    virtual bool intersect(GameObject*) = 0; // 交叉
+    virtual void onCollision(GameObject*) = 0; // 碰撞
 };
 
 #endif
