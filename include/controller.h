@@ -11,8 +11,8 @@ using namespace std;
 
 class Controller {
 private:
-    vector<GameObject*> _objs; // _objs[0] 為靜止，_objs[1] 為動態
-    View &_view;  // _view 是一個 View 物件的參考
+    vector<GameObject*> _objs; // _objs[0] 為動態物件，_objs[1] 為靜止物件
+    View& _view;  // _view 是一個 View 物件的參考
 
     void handleInput(int input); // 處理輸入
 
@@ -20,7 +20,7 @@ public:
 
     // 建構子 // 輸入的參數是一個 View 物件，而當此物件一被輸入進去後，
     // 此物件將會傳參考到 view，因此 view 即為此物件的參考
-    Controller(View &view);
+    Controller(View& view);
     void run();
     void addGameObject(GameObject* obj);
 };

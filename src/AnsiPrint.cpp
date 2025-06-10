@@ -21,8 +21,8 @@ const int kFormatStrSize=20;
 void AnsiPrint(const char *str, color fg, color bg, bool hi, bool blinking) {
 
     // 排除異常情況
-    if ((str==NULL)||(strlen(str)==0))
-     return;
+    if ((str==NULL)||(strlen(str)==0)) 
+        return;
 
     // 建立前景色與背景色選項
     char *foreground=strdup(fgBase);
@@ -60,6 +60,7 @@ void AnsiPrint(const char *str, color fg, color bg, bool hi, bool blinking) {
     #else
     cout << formatStr << str << recover;
     #endif
+
     // 釋放已分配的緩衝區 
     free(background);
     free(foreground);
@@ -79,6 +80,7 @@ void AnsiPrint(const char *str, bool hi, bool blinking) {
     char formatStr[kFormatStrSize]="";
 
     if (hi||blinking) {
+
         // 初始化格式化字串 
         strcat(formatStr, init);
 
@@ -94,6 +96,7 @@ void AnsiPrint(const char *str, bool hi, bool blinking) {
         if (formatStr[strlen(formatStr)-1]==';')
             formatStr[strlen(formatStr)-1]= '\0';
         strcat(formatStr,endc);
+        
     }
 
     // 輸出到標準輸出

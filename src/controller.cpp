@@ -41,6 +41,14 @@ void Controller::run() {
         }
 
         handleInput(input);
+
+        // 碰撞偵測與處理
+        for (int i = 1; i < _objs.size(); i++) {
+            if (_objs[0]-> intersect(_objs[i]) == true) {
+                _objs[0]-> onCollision(_objs[i]);
+            }
+        }
+
         _view.resetLatest(); // 初始化畫面
 
         for(int i = 0; i < _objs.size(); i++) {
@@ -48,10 +56,21 @@ void Controller::run() {
         }
 
         _view.render(); // 將畫面顯示於螢幕
+
+        if (_objs[0]-> get_gameOver() == true) {
+            cout << "Game Over!" << endl;
+            
+            this_thread::sleep_for(chrono::milliseconds(3000)); // 停 3 秒
+
+            _objs[0]-> resetGame(); // 重設遊戲狀態
+
+            continue; // 繼續主迴圈
+        }
+
         end = clock(); // 紀錄結束時間
 
         // 將此張畫面實際停留的時間的單位轉換為秒 
-        double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+        double time_taken = ((double)(end - start)) / (CLOCKS_PER_SEC);
 
         // 判斷是否需要延遲此張畫面
         // 若此張畫面實際停留的時間 >= 此張畫面預計停留的時間，則不需要延遲此張畫面

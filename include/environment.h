@@ -16,7 +16,7 @@ constexpr int WINDOW_PIXEL_WIDTH = GAME_WINDOW_WIDTH * GAME_WINDOW_CELL_WIDTH;
 // 遊戲畫面的高度為 20 個格子
 constexpr int WINDOW_PIXEL_HEIGHT = GAME_WINDOW_HEIGHT; 
 
-// 每張畫面預計停留的時間 (1 秒)
-constexpr double SPF = 1; 
+// 每張畫面預計停留的時間 (0.5 秒)
+constexpr double SPF = 0.5; 
 
 #endif
