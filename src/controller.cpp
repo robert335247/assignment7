@@ -62,6 +62,7 @@ void Controller::run() {
         // 透過 dynamic_cast 嘗試將 _objs[0] 的型態從 GameObject* 轉換成 DynamicObject*
          DynamicObject* DynamicObject1 = dynamic_cast<DynamicObject*>(_objs[0]);
         if (DynamicObject1-> get_gameOver() == true) {
+
             cout << "Game Over!" << endl;
             
             this_thread::sleep_for(chrono::milliseconds(3000)); // 停 3 秒
@@ -69,6 +70,8 @@ void Controller::run() {
             DynamicObject1-> resetGame(); // 重設遊戲狀態
 
             continue; // 繼續主迴圈
+        } else {
+            cout << "          " << endl;
         }
 
         end = clock(); // 紀錄結束時間
