@@ -5,7 +5,6 @@
 #include <vector>
 #include "unit.h"
 #include "icon.h"
-#include "collider.h"
 
 using namespace std;
 

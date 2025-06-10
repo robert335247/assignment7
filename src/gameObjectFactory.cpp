@@ -33,7 +33,7 @@ void DynamicObject::resetGame() {
     _gameOver = false;
 }
 
-void DynamicObject::update(int x, int y) override {
+void DynamicObject::update(int x, int y) {
     if (x == 0 && y == 1) {
     _pos.y() += 1;
     } else if (x == 0 && y == -1) {
@@ -61,7 +61,7 @@ void DynamicObject::update(int x, int y) override {
     }
 }
 
-    void DynamicObject::onCollision(GameObject* otherGameObject) override { // 發生碰撞
+    void DynamicObject::onCollision(GameObject* otherGameObject) { // 發生碰撞
 
         // 透過 dynamic_cast 嘗試將 other 的型態從 ICollider* 轉換成 GameObject*
         // GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
@@ -79,7 +79,7 @@ void DynamicObject::update(int x, int y) override {
         }
     }
  
-    bool DynamicObject::intersect(GameObject* otherGameObject) override { // 是否發生碰撞
+    bool DynamicObject::intersect(GameObject* otherGameObject) { // 是否發生碰撞
 
         // GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
 
