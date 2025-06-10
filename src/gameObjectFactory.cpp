@@ -7,6 +7,12 @@ StaticObject::StaticObject(int x, int y) { // 建構子
     _icon = IconFactory::createStaticIcon(); // 從 IconFactory 取得圖案，並將其賦值給 _icon
 }
 
+void StaticObject::update(int x, int y) {}
+
+void StaticObject::onCollision(GameObject* otherGameObject) {};
+ 
+bool StaticObject::intersect(GameObject* otherGameObject) {};
+
     // void update(int x, int y) override {}
     // void onCollision(ICollider* other) override {}
     // bool intersect(ICollider* other) override {}
@@ -84,9 +90,9 @@ void DynamicObject::update(int x, int y) {
         // GameObject* otherGameObject = dynamic_cast<GameObject*>(other);
 
         if ((otherGameObject != nullptr)) {
-            if ((this-> _pos.x() == otherGameObject-> _pos.x()) && 
-                (this-> _pos.y() == otherGameObject-> _pos.y())) {
-                return ture;
+            if ((this-> getPosition().x() == otherGameObject-> getPosition().x()) && 
+                (this-> getPosition().y() == otherGameObject-> getPosition().y())) {
+                return true;
             } else {
                 return false;
             }

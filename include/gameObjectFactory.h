@@ -14,6 +14,12 @@ public:
 class StaticObject : public GameObject, public ICollider{
 public:
     StaticObject(int x, int y); // 建構子
+    
+    void update(int x, int y) override;
+
+    void onCollision(GameObject* otherGameObject) override;
+ 
+    bool intersect(GameObject* otherGameObject) override;
 
     // void update(int x, int y) override {}
     // void onCollision(ICollider* other) override {}
